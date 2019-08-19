@@ -1,3 +1,5 @@
+import re 
+
 prompts = {
     "what": "what is the stanley cup?",
     "named": "who was the stanley cup named after? ",
@@ -14,8 +16,36 @@ responses = {
     "when": "1893"
 }
 
-def process_input(userInput):
-    print("Hello")
+def process_input(user_input):
+    user_input = re.sub(r'[^\w\s]', '', user_input)
+    words = user_input.split(" ")
+    matching_keys = []
+    for word in words:
+        if word in responses.keys():
+            matching_keys.append(word)
+
+    if len(matching_keys) == 0:
+        return "I don't know that"
+    elif len(matching_keys) == 1:
+        return responses[matching_keys[0]]
+    else: 
+        print("I am not sure what you mean? Did you mean: ")
+        index = 1
+
+        for key in matching_keys:
+            print(str(index) + ": " + prompts[key])
+            index += 1
+
+        valid = False
+
+        while not valid:
+            selected = int(input("#: "))
+            
+            if selected <= len(matching_keys) and selected > 0:
+                valid = True
+            else:
+                print("Please enter on of the above")
+        return responses[matching_keys[selected - 1]]
 
 def main():
     print("Welcome to the Stanley cup Journal\n")
