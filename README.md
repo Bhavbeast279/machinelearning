@@ -39,6 +39,11 @@ Install Python 3.7 64 bit version. Make sure to add the Python installation dire
 * Install Visual Studio
 * Select "Desktop development with C++" during installation
 
+**Mac Prerequisites**
+```
+pip install cmake
+```
+
 **VS Code**
 
 Select default shell. Ctrl-Shift-P, select default shell, choose bash. Open a terminal and run these commands:
@@ -59,6 +64,16 @@ Change to the new directory
 
 ``` 
 cd ML-CV-Templates 
+```
+
+Make a New Github Repo on Github.com
+
+Setup Origin and Upstream
+```
+git remote remove origin
+git remote add origin YOUR_GITHUB_REPO_URL.git
+
+git remote add upstream https://github.com/holyokecodes/ML-CV-Templates.git
 ```
 
 Install dependencies
