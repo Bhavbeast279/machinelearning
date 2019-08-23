@@ -82,8 +82,17 @@ Install dependencies
 pipenv install 
 ```
 
-Start development
+Activate Python virtual environment
 
 ``` 
 pipenv shell 
+```
+
+Install NLTK data
+```
+python
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+exit()
 ```
